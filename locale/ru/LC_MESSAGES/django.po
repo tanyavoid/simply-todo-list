@@ -1,0 +1,432 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-24 21:06+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: basic_todo/settings/base.py:90 users/models.py:26
+msgid "English"
+msgstr "Английский"
+
+#: basic_todo/settings/base.py:91 users/models.py:26
+msgid "Russian"
+msgstr "Русский"
+
+#: templates/403.html:5
+msgid "Forbidden"
+msgstr "Запрещено"
+
+#: templates/403.html:10
+msgid "Sorry, you can’t see this page."
+msgstr "Извините, к этой странице нет доступа."
+
+#: templates/403.html:11 templates/404.html:11 templates/500.html:11
+msgid "Go to homepage"
+msgstr "Перейти на домашнюю страницу"
+
+#: templates/404.html:5
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+#: templates/404.html:10
+msgid "There is nothing here"
+msgstr "Здесь ничего нет"
+
+#: templates/500.html:5
+msgid "Internal Server Error"
+msgstr "Внутренняя ошибка сервера"
+
+#: templates/500.html:10
+msgid "Oops, something went wrong."
+msgstr "Ой, что-то пошло не так."
+
+#: templates/auth/auth.html:6 templates/auth/auth.html:15
+#: templates/auth/auth.html:18 templates/auth/auth.html:31
+#: templates/index.html:11
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: templates/auth/auth.html:8 templates/auth/auth.html:19
+#: templates/auth/auth.html:24 templates/auth/auth.html:30
+#: templates/index.html:9
+msgid "Login"
+msgstr "Войти"
+
+#: templates/auth/auth.html:19
+msgid "Have an account?"
+msgstr "Уже есть аккаунт?"
+
+#: templates/auth/auth.html:27
+msgid "Forgot you password?"
+msgstr "Забыли пароль?"
+
+#: templates/auth/auth.html:31
+msgid "Need an account?"
+msgstr "Нужен аккаунт?"
+
+#: templates/auth/password_change.html:5 templates/auth/password_change.html:10
+#: templates/user_settings.html:55
+msgid "Change Password"
+msgstr "Изменить пароль"
+
+#: templates/auth/password_change.html:13
+msgid "Save changes"
+msgstr "Сохранить"
+
+#: templates/auth/password_change.html:15
+msgid "Forgot you old password?"
+msgstr "Забыли свой старый пароль?"
+
+#: templates/auth/password_change.html:16 templates/auth/password_reset.html:16
+#: templates/index.html:95 templates/user_settings.html:10
+msgid "Back"
+msgstr "Назад"
+
+#: templates/auth/password_reset.html:4
+#: templates/auth/registration_activation_resend.html:4
+msgid "Reset password"
+msgstr "Сбросить пароль"
+
+#: templates/auth/password_reset.html:7
+msgid "Reset Password"
+msgstr "Сбросить пароль"
+
+#: templates/auth/password_reset.html:8
+msgid ""
+"Forgotten your password? Enter your email address below, and we’ll email "
+"instructions for setting a new one."
+msgstr ""
+"Забыли пароль? Введите свой адрес электронной почты ниже, и мы вышлем "
+"инструкцию по установке нового пароля."
+
+#: templates/auth/password_reset.html:12
+msgid "Reset my password"
+msgstr "Сбросить пароль"
+
+#: templates/auth/password_reset.html:14
+#: templates/auth/registration_activation_resend.html:12
+msgid "Back to login"
+msgstr "Назад на страницу входа"
+
+#: templates/auth/password_reset_complete.html:5
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr "Пароль установлен. Теперь можно зайти на сайт."
+
+#: templates/auth/password_reset_complete.html:6
+msgid "Log in"
+msgstr "Войти"
+
+#: templates/auth/password_reset_confirm.html:4
+msgid "New password"
+msgstr "Новый пароль"
+
+#: templates/auth/password_reset_confirm.html:9
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: templates/auth/password_reset_confirm.html:11
+msgid "Enter New Password"
+msgstr "Введите новый пароль"
+
+#: templates/auth/password_reset_confirm.html:13
+msgid "Change my password"
+msgstr "Изменить пароль"
+
+#: templates/auth/password_reset_confirm.html:16
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used."
+msgstr ""
+
+#: templates/auth/password_reset_confirm.html:16
+msgid "Please request a new password reset."
+msgstr "Пожалуйста, запросите сброс пароля заново."
+
+#: templates/auth/password_reset_done.html:4
+msgid "Check Your Email"
+msgstr "Проверьте Вашу почту"
+
+#: templates/auth/password_reset_done.html:7
+msgid ""
+"We’ve emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+"Мы отправили инструкцию по установке нового пароля на указанный адрес "
+"электронной почты (если в нашей базе данных есть такой адрес). Вы должны "
+"получить ее в ближайшее время."
+
+#: templates/auth/password_reset_done.html:8
+msgid ""
+"If you don’t receive an email, please make sure you’ve entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+"Если вы не получили письмо, пожалуйста, убедитесь, что Вы ввели адрес, "
+"который использовали при регистрации, а также проверьте папку со спамом."
+
+#: templates/auth/password_reset_done.html:9
+msgid "Homepage"
+msgstr "Домашняя страница"
+
+#: templates/auth/password_reset_email.html:6
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: templates/auth/password_reset_email.html:9
+msgid "Please go to the following page and choose a new password:"
+msgstr "Чтобы задать новый пароль, пройтите на страницу по ссылке:"
+
+#: templates/auth/password_reset_email.html:14
+#: templates/auth/registration_activation_email.html:10
+msgid "Your username:"
+msgstr "Имя пользователя:"
+
+#: templates/auth/registration_activation_email.html:6
+msgid "Hi! Thank you for giving the Simply Todo List a try."
+msgstr "Привет! Спасибо за то, что решили попробовать Просто Список Дел."
+
+#: templates/auth/registration_activation_email.html:8
+msgid "Please click on the following link to complete your registration"
+msgstr "Пожалуйста, пройдите по ссылке для завершения регистрации"
+
+#: templates/auth/registration_activation_error.html:4 users/views.py:37
+msgid "Activate your account"
+msgstr "Активируйте свой аккаунт"
+
+#: templates/auth/registration_activation_error.html:8
+msgid "Sorry, the activation link is invalid."
+msgstr "Извините, ссылка активации аккаунта неверна."
+
+#: templates/auth/registration_activation_error.html:9
+msgid "Resend the link"
+msgstr "Отправить ссылку снова"
+
+#: templates/auth/registration_activation_error.html:10
+msgid "Login page"
+msgstr "Страница входа"
+
+#: templates/auth/registration_activation_resend.html:7
+msgid "Request a new account activation link"
+msgstr "Запрос новой ссылки для активации аккаунта"
+
+#: templates/auth/registration_activation_resend.html:11
+msgid "Send the link"
+msgstr "Отправить ссылку"
+
+#: templates/base.html:15
+msgid "Simply Todo List"
+msgstr "Просто список дел"
+
+#: templates/index.html:8
+msgid "You need an account to save your todo list."
+msgstr "Чтобы вести список дел, нужен аккаунт."
+
+#: templates/index.html:10
+msgid "or"
+msgstr "или"
+
+#: templates/index.html:14
+msgid "Try now"
+msgstr "Попробовать сейчас"
+
+#: templates/index.html:43 templates/try.html:7
+msgid "New to-do item"
+msgstr "Добавить новую задачу"
+
+#: templates/index.html:76
+msgid "Edit the item"
+msgstr "Изменить задачу"
+
+#: templates/index.html:79 templates/try.html:29
+msgid "Copy text"
+msgstr "Скопировать текст"
+
+#: templates/index.html:83 templates/try.html:33
+msgid "Delete the item"
+msgstr "Удалить задачу"
+
+#: templates/index.html:110
+msgid "My settings"
+msgstr "Настройки"
+
+#: templates/try.html:44
+msgid "Register</a> to save your todo list"
+msgstr "Зарегистрируйтесь</a>, чтобы сохранить список дел"
+
+#: templates/try.html:45
+msgid "Having an account, you'll be able to:"
+msgstr "Аккаунт позволит:"
+
+#: templates/try.html:47
+msgid "save your todo list;"
+msgstr "сохранять список дел;"
+
+#: templates/try.html:48
+msgid "export it in various formats;"
+msgstr "скачивать его в различных форматах;"
+
+#: templates/try.html:49
+msgid "try a light theme;"
+msgstr "попробовать светлую тему;"
+
+#: templates/try.html:50
+msgid "edit items."
+msgstr "редактировать задачи."
+
+#: templates/user_settings.html:5
+msgid "Settings"
+msgstr "Настройки"
+
+#: templates/user_settings.html:13
+msgid "Theme"
+msgstr "Тема"
+
+#: templates/user_settings.html:16 users/models.py:29
+msgid "Dark"
+msgstr "Тёмная"
+
+#: templates/user_settings.html:20 users/models.py:29
+msgid "Light"
+msgstr "Светлая"
+
+#: templates/user_settings.html:28
+msgid "Language"
+msgstr "Язык"
+
+#: templates/user_settings.html:42
+msgid "Export"
+msgstr "Экспортировать"
+
+#: templates/user_settings.html:54
+msgid "Logged in as"
+msgstr "Вы вошли как"
+
+#: templates/user_settings.html:56
+msgid "Logout"
+msgstr "Выйти"
+
+#: todo/views.py:129
+msgid "Hello!"
+msgstr "Привет!"
+
+#: todo/views.py:130
+msgid "Here you can try to add items"
+msgstr "Здесь можно попробовать добавить задачи"
+
+#: todo/views.py:131
+msgid "Sort them the way you want"
+msgstr "Отсортировать их так, как хотите"
+
+#: todo/views.py:132
+msgid "Delete some of them"
+msgstr "Удалить какие-нибудь их них"
+
+#: users/forms.py:12
+msgid "Username or email"
+msgstr "Имя пользователя или почта"
+
+#: users/forms.py:24
+msgid ""
+"Please enter a correct username/email and password. Note that both fields "
+"are case-sensitive."
+msgstr ""
+"Пожалуйста, введите правильные имя пользователя / электронную почту и "
+"пароль. Оба поля чувствительны к регистру."
+
+#: users/forms.py:35
+msgid "request a new one"
+msgstr "запросите новую"
+
+#: users/forms.py:38
+msgid ""
+"Your account is not activated.\n"
+"Please check your email for the activation link or {}."
+msgstr ""
+"Этот аккаунт не активирован.\n"
+"Пожалуйста, проверьте ссылку активации на своей почте или {}."
+
+#: users/forms.py:45
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: users/forms.py:48
+msgid "30 chars or fewer. Letters, digits and @/./+/-/_"
+msgstr "До 30 символов. Английские буквы, цифры и @/./+/-/_"
+
+#: users/forms.py:51
+msgid "This value may contain only letters, numbers and @/./+/-/_ characters"
+msgstr "Только английские буквы, цифры и символы @/./+/-/_"
+
+#: users/forms.py:65 users/forms.py:98
+msgid "Email"
+msgstr "Электронная почта"
+
+#: users/forms.py:68
+msgid "Password"
+msgstr "Пароль"
+
+#: users/forms.py:76
+msgid "Make a good one"
+msgstr "Придумайте хороший пароль"
+
+#: users/forms.py:79
+msgid "Confirm password"
+msgstr "Подтверждение пароля"
+
+#: users/forms.py:88
+msgid "Repeat a good one"
+msgstr "Повторите свой хороший пароль"
+
+#: users/views.py:77
+msgid "Welcome! Please check your email to complete registration."
+msgstr ""
+"Добро пожаловать! Пожалуйста, проверьте свою почту для завершения "
+"регистрации."
+
+#: users/views.py:98
+msgid "Great! Now you can login and create your todos."
+msgstr "Отлично! Теперь можно войти и добавлять дела в список."
+
+#: users/views.py:107 users/views.py:116
+msgid "Your account is already activated."
+msgstr "Ваш аккаунт уже активирован."
+
+#: users/views.py:120
+msgid "Please check your email for the activation link."
+msgstr "Проверьте свою почту — ссылка активации аккаунта отправлена."
+
+#: users/views.py:124
+msgid "Please entered the address you registered with."
+msgstr ""
+"Пожалуйста, введите адрес почты, который Вы использовали при регистрации."
+
+#: users/views.py:158
+msgid "You haven’t changed your password."
+msgstr "Вы не изменили свой пароль."
+
+#: users/views.py:162
+msgid "Your password was successfully updated!"
+msgstr "Пароль успешно обновлён!"
+
+#~ msgid "Sorry, this page doesn’t exist."
+#~ msgstr "Извините, такой страницы нет."

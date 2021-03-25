@@ -1,0 +1,12 @@
+*.log
+*.pot
+*.pyc
+__pycache__/
+.env
+db.sqlite3
+db.sqlite3-journal
+
+.coverage
+.coverage.*
+
+.ipynb_checkpoints

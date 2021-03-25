@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+
+  {% if not user.is_authenticated %}
+    <div class="hello">
+      <p>{% trans "You need an account to save your todo list." %}<br>
+        <a href="{% url 'login' %}" class="link">{% trans "Login" %}</a>
+        {% trans "or" %}
+        <a href="{% url 'register' %}" class="link">{% trans "Register" %}</a>
+      </p>
+      <div class="sep"></div>
+      <p><a href="{% url 'try' %}" class="link">{% trans "Try now" %} →</small></a></p>
+      <div class="sep"></div>
+      <form action="{% url 'change-language' %}" method="post">{% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}">
+        {% get_available_languages as languages %}
+        {% get_current_language as current_language %}
+        {% for lang_code, lang_name in languages %}
+          <input
+            type="radio"
+            name="language"
+            id="{{ lang_code }}"
+            value="{{ lang_code }}"
+            onChange="this.form.submit()"
+            class="hidden"
+            {% if lang_code == current_language %}checked{% endif %}
+          >
+          <label for="{{ lang_code }}" {% if lang_code == current_language %}class="text-muted underline"{% endif %}>{{ lang_code }}</label>
+        {% endfor %}
+      </form>
+    </div>
+
+  {% else %}
+    <form method="post" id="todo-form">{% csrf_token %}
+      <input type="text"
+        {% if 'edit' in request.path %}
+          class="attention" autofocus
+          value="{{ form.instance.text }}"
+          onfocus="moveCursorToEnd(this)"
+        {% else %}
+          placeholder="{% trans "New to-do item" %}"
+        {% endif %}
+        name="{{ form.text.name }}"
+        id="{{ form.text.id_for_label }}"
+        maxlength="{{ form.text.field.max_length }}"
+        {% if form.text.field.required %}required{% endif %}>
+
+      {% if 'edit' in request.path %}
+        <button type="submit" class="btn btn-accent"><i class="fas fa-check"></i></button>
+      {% else %}
+        <button type="submit" class="btn">+</button>
+      {% endif %}
+    </form>
+
+    {% if 'edit' not in request.path %}
+    <ul id="todo-list">
+      {% for todo in todo_list %}
+      <li data-id="{{ todo.id }}">
+        <form method="post" id="check">{% csrf_token %}
+          <div class="checkbox-wrap">
+            <input type="hidden" name="is_done" value="{{ todo.slug }}-unchecked">
+            <input 
+              type="checkbox" name="is_done" id="is-done-{{ todo.id }}" class="main-checkbox"
+              value="{{ todo.slug }}"
+              {% if todo.is_done %}checked{% endif %}
+              onchange="this.form.submit();"
+              onfocus="this.value = this.value;"
+            >
+            <label for="is-done-{{ todo.id }}"></label>
+          </div>
+        </form>
+        <p class="{% if todo.is_done %}done text-muted{% endif %}">{{ todo.text }}</p>
+        <div class="change">
+          <a href="{% url 'edit' todo.slug %}" class="text-muted" id="edit" title="{% trans 'Edit the item' %}">
+            <small><i class="fas fa-pencil-alt"></i></small>
+          </a>
+          <button type="button" class="link-btn text-muted" id="copy" onclick="copyToClipboard(this)" title="{% trans 'Copy text' %}">
+            <small><i class="far fa-copy"></i></small>
+          </button>
+          <form action="{% url 'delete' todo.slug %}" method="post">{% csrf_token %}
+            <button type="submit" class="link-btn text-muted" id="delete" title="{% trans 'Delete the item' %}">
+              <small><i class="far fa-times-circle"></i></small>
+            </button>
+          </form>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <nav class="nav-links text-muted">
+      {% if 'edit' in request.path %}
+        <a href="{% url 'home' %}" >{% trans "Back" %}</a>
+      {% else %}
+        <div class="pagination">
+          {% if page_obj.has_previous %}          
+            <a href="?page={{ page_obj.previous_page_number }}" class="previous"><i class="fas fa-chevron-left"></i></a>
+          {% endif %}
+
+          {% if page_obj.has_previous or page_obj.has_next %}  
+            <span class="current">{{ page_obj.number }}</span>
+          {% endif %}
+
+          {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="next"><i class="fas fa-chevron-right"></i></a>
+          {% endif %}
+        </div>
+        <a href="{% url 'user-settings' %}" title="{% trans 'My settings' %}"><i class="fas fa-sliders-h"></i></a>
+      {% endif %}
+    </nav>
+  {% endif %}
+
+{% endblock content %}

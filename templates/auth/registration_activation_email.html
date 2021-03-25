@@ -1,0 +1,11 @@
+{% load i18n %}
+
+{% autoescape off %}
+  {% include 'auth/style_email.html' %}
+  {% if first %}
+    <p>{% trans "Hi! Thank you for giving the Simply Todo List a try." %}</p>
+  {% endif %}
+    <p>{% trans "Please click on the folloting link to complete your registration" %}<br>
+    {{ protocol }}://{{ domain }}{% url 'activate-account' uidb64=uidb64 token=token %}</p>
+    <p>{% trans "Your username:" %} {{ user.username }}</p>
+{% endautoescape %}

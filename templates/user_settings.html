@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Settings" %} | 
+{% endblock title %}
+
+{% block content %}
+  <ul class="settings">
+    <li><a class="text-muted" href="{% url 'home' %}">{% trans "Back" %}</a></li>
+    <li>
+      <form id="theme" action="{% url 'change-theme' %}" method="post" class="settings-form">{% csrf_token %}
+        <h4>{% trans "Theme" %}:</h4>
+        <div>
+          <input type="radio" name="theme" id="dark" value="0" onChange="this.form.submit()" {% if theme == 0 %}checked{% endif %}>
+          <label for="dark">{% trans "Dark" %}</label>
+        </div>
+        <div>
+          <input type="radio" name="theme" id="light" value="1" onChange="this.form.submit()" {% if theme == 1 %}checked{% endif %}>
+          <label for="light">{% trans "Light" %}</label>
+        </div>
+        <!-- <button type="submit" class="btn btn-accent"><i class="fas fa-check"></i></button> -->
+      </form> 
+    </li>
+
+    <li>
+      <form id="language" action="{% url 'change-user-language' %}" method="post" class="settings-form">{% csrf_token %}
+        <h4>{% trans "Language" %}:</h4>
+        {% get_available_languages as languages %}
+        {% get_current_language as current_language %}
+        {% for lang_code, lang_name in languages %}
+          <div>
+            <input type="radio" name="language" id="{{ lang_code }}" value="{{ lang_code }}" onChange="this.form.submit()" {% if lang_code == current_language %}checked{% endif %}>
+            <label for="{{ lang_code }}">{{ lang_name }}</label>
+          </div>
+        {% endfor %}
+      </form>
+    </li>
+    
+    <li class="export">
+      <form id="export" action="{% url 'export' %}" method="post" class="settings-form">{% csrf_token %}
+        <h4>{% trans "Export" %}:</h4>
+          <input type="radio" name="format" value="txt" id="txt" onChange="this.form.submit()" class="hidden">
+          <label for="txt">.txt <i class="fas fa-file-download"></i></label>
+          <input type="radio" name="format" value="md" id="md" onChange="this.form.submit()" class="hidden">
+          <label for="md">.md <i class="fas fa-file-download"></i></label>
+          <input type="radio" name="format" value="csv" id="csv" onChange="this.form.submit()" class="hidden">
+          <label for="csv">.csv <i class="fas fa-file-download"></i></label>
+          <input type="radio" name="format" value="json" id="json" onChange="this.form.submit()" class="hidden">
+          <label for="json">.json <i class="fas fa-file-download"></i></label>
+      </form>
+    </li>
+
+    <li>{% trans "Logged in as" %} <strong>{{ request.user.username }}</strong></li>
+    <li><a class="text-muted" href="{% url 'change-password' %}">{% trans "Change Password" %}</a></li>
+    <li><a class="text-muted" href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+  </ul>
+{% endblock content %}

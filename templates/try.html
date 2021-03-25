@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <p><a href="{% url 'home' %}" class="d-block text-muted">←</a></p>
+  <form method="post" id="todo-form">{% csrf_token %}
+    <input type="text" name="text" required placeholder="{% trans "New to-do item" %}">
+    <button type="submit" class="btn">+</button>
+  </form>
+
+  <ul id="todo-list">
+    {% for todo in todo_list %}
+    <li data-id="{{ forloop.counter0 }}">
+      <form method="post" id="check">{% csrf_token %}
+        <div class="checkbox-wrap">
+          <input type="hidden" name="is_done" value="{{ forloop.counter0 }}-unchecked">
+          <input 
+            type="checkbox" name="is_done" id="is-done-{{ forloop.counter0 }}" class="main-checkbox"
+            value="{{ forloop.counter0 }}"
+            {% if todo.is_done %}checked{% endif %}
+            onchange="this.form.submit();"
+            onfocus="this.value = this.value;"
+          >
+          <label for="is-done-{{ forloop.counter0 }}"></label>
+        </div>
+      </form>
+      <p class="{% if todo.is_done %}done text-muted{% endif %}">{{ todo.text }}</p>
+      <div class="change flex-end">
+        <button type="button" class="link-btn text-muted" id="copy" onclick="copyToClipboard(this)" title="{% trans 'Copy text' %}">
+          <small><i class="far fa-copy"></i></small>
+        </button>
+        <form method="post">{% csrf_token %}
+          <button type="submit" class="link-btn text-muted" id="delete" title="{% trans 'Delete the item' %}">
+            <input type="hidden" name="delete" value="{{ forloop.counter0 }}">
+            <small><i class="far fa-times-circle"></i></small>
+          </button>
+        </form>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  
+  <div class="text-muted text-center" id="ad">
+    <h3><a href="{% url 'register' %}" class="link">{% trans "Register</a> to save your todo list" %}.</h3>
+    <div>{% trans "Having an account, you'll be able to:" %}</div>
+    <ul class="advantages">
+      <li>{% trans "save your todo list;" %}</li>
+      <li>{% trans "export it in various formats;" %}</li>
+      <li>{% trans "try a light theme;" %}</li>
+      <li>{% trans "edit items." %}</li>
+    </ul>
+  </div>
+
+{% endblock content %}
