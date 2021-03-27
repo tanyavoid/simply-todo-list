@@ -339,7 +339,7 @@ msgstr "Отсортировать их так, как хотите"
 
 #: todo/views.py:132
 msgid "Delete some of them"
-msgstr "Удалить какие-нибудь их них"
+msgstr "Удалить какие-нибудь из них"
 
 #: users/forms.py:12
 msgid "Username or email"
