@@ -427,6 +427,3 @@ msgstr "Вы не изменили свой пароль."
 #: users/views.py:162
 msgid "Your password was successfully updated!"
 msgstr "Пароль успешно обновлён!"
-
-#~ msgid "Sorry, this page doesn’t exist."
-#~ msgstr "Извините, такой страницы нет."
