@@ -8,7 +8,7 @@ DEBUG = True
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split()
 
 DATABASES = {
     'default': {
