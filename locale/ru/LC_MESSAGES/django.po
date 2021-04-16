@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 21:06+0300\n"
+"POT-Creation-Date: 2021-04-16 10:41+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,14 +137,14 @@ msgid "New password"
 msgstr "Новый пароль"
 
 #: templates/auth/password_reset_confirm.html:9
+msgid "Enter New Password"
+msgstr "Введите новый пароль"
+
+#: templates/auth/password_reset_confirm.html:10
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
-
-#: templates/auth/password_reset_confirm.html:11
-msgid "Enter New Password"
-msgstr "Введите новый пароль"
 
 #: templates/auth/password_reset_confirm.html:13
 msgid "Change my password"
@@ -274,22 +274,18 @@ msgid "Register</a> to save your todo list"
 msgstr "Зарегистрируйтесь</a>, чтобы сохранить список дел"
 
 #: templates/try.html:45
-msgid "Having an account, you'll be able to:"
-msgstr "Аккаунт позволит:"
+msgid "Having an account, you'll also be able to:"
+msgstr "Аккаунт также позволит:"
 
 #: templates/try.html:47
-msgid "save your todo list;"
-msgstr "сохранять список дел;"
+msgid "export your list in various formats;"
+msgstr "скачивать список в различных форматах;"
 
 #: templates/try.html:48
-msgid "export it in various formats;"
-msgstr "скачивать его в различных форматах;"
-
-#: templates/try.html:49
 msgid "try a light theme;"
 msgstr "попробовать светлую тему;"
 
-#: templates/try.html:50
+#: templates/try.html:49
 msgid "edit items."
 msgstr "редактировать задачи."
 
@@ -427,3 +423,6 @@ msgstr "Вы не изменили свой пароль."
 #: users/views.py:162
 msgid "Your password was successfully updated!"
 msgstr "Пароль успешно обновлён!"
+
+#~ msgid "save your todo list;"
+#~ msgstr "сохранять список дел;"
