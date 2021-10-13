@@ -11,8 +11,12 @@ from django.utils import timezone, translation
 from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_exempt
 
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 from .models import Todo
 from .forms import TodoForm, TodoTestForm
+from .serializers import TodoSerializer
 
 
 def home(request):
@@ -113,7 +117,7 @@ def sort(request):
     return HttpResponse(status=204)
 
 
-def trial(request):
+def try_view(request):
     '''
     Give access to the main functionality to anonymous users.
     List of items is stored as a cookie that gets updated on change.
@@ -165,3 +169,14 @@ def trial(request):
 
     context = {'form': form, 'todo_list': todo_list}
     return render(request, 'try.html', context)
+
+
+@api_view()
+def serialized_items_view(request):
+    """See how it turns out."""
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    todos = Todo.objects.filter(owner=request.user)
+    serializer = TodoSerializer(todos, many=True)
+    return Response(serializer.data)
