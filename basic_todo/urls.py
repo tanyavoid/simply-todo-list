@@ -2,7 +2,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
 
-from todo.views import home, edit, delete, change_language, sort, trial
+from todo.views import (
+    home,
+    edit,
+    delete,
+    change_language,
+    sort,
+    try_view,
+    serialized_items_view,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,7 +24,7 @@ urlpatterns += i18n_patterns(
     path('delete/<slug:slug>/', delete, name='delete'),
     path('change-language/', change_language, name='change-language'),
     path('sort/', sort, name='sort'),
-    path('try/', trial, name='try'),
-
-    prefix_default_language=False
+    path('try/', try_view, name='try'),
+    path('serialized/', serialized_items_view, name='serialized'),
+    prefix_default_language=False,
 )
