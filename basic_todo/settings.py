@@ -1,14 +1,18 @@
-"""
-Django settings for basic_todo project.
-Django 3.1.5.
-"""
-
-import os
+import environ
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
+env = environ.Env(DEBUG=(bool, False))
 
-BASE_DIR = Path(__file__).resolve().parents[2]
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+environ.Env.read_env(BASE_DIR / '.env')
+
+SECRET_KEY = env('SECRET_KEY')
+
+DEBUG = env('DEBUG')
+
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -54,6 +58,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'basic_todo.wsgi.application'
 
+
+# Database
+DATABASES = {
+    'default': env.db(),  # DATABASE_URL from .env
+}
 
 # Password validation
 
@@ -103,7 +112,36 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env('EMAIL_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_PASS')
+EMAIL_USE_TLS = True
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+if not DEBUG:
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
+    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+    SESSION_COOKIE_SECURE = True
+
+    # CSRF_COOKIE_SECURE = True

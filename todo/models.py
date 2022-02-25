@@ -1,13 +1,15 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
-from basic_todo.settings.base import AUTH_USER_MODEL
 from .utils import get_random_string
 
 
 class Todo(models.Model):
     text = models.TextField(blank=True)
-    owner = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE
+    )
     slug = models.SlugField(unique=True, null=False)
     date_added = models.DateTimeField(default=timezone.now)
     date_done = models.DateTimeField(null=True, blank=True)

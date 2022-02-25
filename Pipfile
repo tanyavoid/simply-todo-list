@@ -8,14 +8,13 @@ ipython = "*"
 coverage = "*"
 
 [packages]
-django = "*"
-install = "*"
-python-dotenv = "*"
+django = "~=3.2"
+djangorestframework = "*"
+django-environ = "*"
+psycopg2-binary = "*"
 dj-database-url = "*"
 gunicorn = "*"
 whitenoise = "*"
-djangorestframework = "*"
-psycopg2-binary = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
