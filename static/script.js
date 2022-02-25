@@ -1,3 +1,5 @@
+const copyIcons = document.querySelectorAll('#project-detail img');
+
 function moveCursorToEnd(el) {
   if (typeof el.selectionStart == "number") {
     el.selectionStart = el.selectionEnd = el.value.length;
@@ -17,4 +19,19 @@ function copyToClipboard(elem) {
   window.getSelection().addRange(range); 
   document.execCommand("copy");
   window.getSelection().removeAllRanges();
+  showNotification()
+}
+
+function showNotification() {
+  let message = 'Copied!';
+  if (document.cookie.indexOf('django_language=ru') != -1) {
+    message = 'Скопировано!'
+  }
+  const n = document.createElement('div')
+  n.classList.add('notification')
+  n.innerText = message
+  notify.appendChild(n)
+  setTimeout(() => {
+      n.remove()
+  }, 2000)
 }

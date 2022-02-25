@@ -349,21 +349,21 @@ a.text-muted:hover {
   color: inherit;
 }
 
-.change #copy:active,
-.change #copy:focus,
-.change #copy:hover {
+.change .copy:active,
+.change .copy:focus,
+.change .copy:hover {
   color: var(--accent-one);
 }
 
-.change #edit:active,
-.change #edit:focus,
-.change #edit:hover {
+.change .edit:active,
+.change .edit:focus,
+.change .edit:hover {
   color: var(--accent-two);
 }
 
-.change #delete:active,
-.change #delete:focus,
-.change #delete:hover {
+.change .delete:active,
+.change .delete:focus,
+.change .delete:hover {
   color: var(--error-color);
 }
 
@@ -524,6 +524,29 @@ input[type='radio']:checked ~ label:before {
 
 .theme-light .text-muted {
   color: #999;
+}
+
+#notify {
+  position: fixed;
+  bottom: 15px;
+  right: 30px;
+}
+
+.notification {
+  border-radius: var(--b-radius);
+  padding: 0.8rem 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.theme-dark .notification {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+.theme-light .notification {
+  background-color: var(--dark-color);
+  color: var(--light-color);
 }
 
 @media(max-width: 520px) {

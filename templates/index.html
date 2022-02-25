@@ -73,14 +73,14 @@
         </form>
         <p class="{% if todo.is_done %}done text-muted{% endif %}">{{ todo.text }}</p>
         <div class="change">
-          <a href="{% url 'edit' todo.slug %}" class="text-muted" id="edit" title="{% trans 'Edit the item' %}">
+          <a href="{% url 'edit' todo.slug %}" class="edit text-muted" title="{% trans 'Edit the item' %}">
             <small><i class="fas fa-pencil-alt"></i></small>
           </a>
-          <button type="button" class="link-btn text-muted" id="copy" onclick="copyToClipboard(this)" title="{% trans 'Copy text' %}">
+          <button type="button" class="copy link-btn text-muted" onclick="copyToClipboard(this)" title="{% trans 'Copy text' %}">
             <small><i class="far fa-copy"></i></small>
           </button>
           <form action="{% url 'delete' todo.slug %}" method="post">{% csrf_token %}
-            <button type="submit" class="link-btn text-muted" id="delete" title="{% trans 'Delete the item' %}">
+            <button type="submit" class="delete link-btn text-muted" title="{% trans 'Delete the item' %}">
               <small><i class="far fa-times-circle"></i></small>
             </button>
           </form>
