@@ -95,7 +95,7 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # Internationalization
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'ru'
 
 LANGUAGES = [
     ('en', _('English')),
@@ -114,7 +114,6 @@ USE_TZ = True
 
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -139,7 +138,9 @@ if not DEBUG:
 
     MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE = (
+        'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    )
 
     STATIC_ROOT = BASE_DIR / 'staticfiles'
 

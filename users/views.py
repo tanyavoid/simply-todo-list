@@ -16,7 +16,7 @@ from django.urls import reverse, translate_url
 from django.utils.encoding import force_bytes
 from django.utils.html import strip_tags
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.translation import activate, LANGUAGE_SESSION_KEY, gettext as _
+from django.utils.translation import activate, gettext as _
 
 from .models import User
 from .forms import RegistrationForm, EmailForm, LoginForm
@@ -141,7 +141,7 @@ class LoginUserView(LoginView):
             url = translate_url(url, user_language)
             activate(user_language)
             if hasattr(self.request, 'session'):
-                self.request.session[LANGUAGE_SESSION_KEY] = user_language
+                self.request.session[settings.LANGUAGE_COOKIE_NAME] = user_language
         return url
 
 

@@ -2,7 +2,6 @@ import json
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator
 from django.db import transaction
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
@@ -15,7 +14,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import Todo
-from .forms import TodoForm, TodoTestForm
+from .forms import TodoForm, TodoTryForm
 from .serializers import TodoSerializer
 
 
@@ -49,7 +48,9 @@ def home(request):
             return redirect('home')
 
         user_todos = Todo.objects.filter(owner=user)
-        not_done = user_todos.filter(is_done=False).order_by('order', '-date_added')
+        not_done = user_todos.filter(is_done=False).order_by(
+            'order', '-date_added'
+        )
         done = user_todos.filter(is_done=True).order_by('-date_done')
         todo_list = list(not_done) + list(done)
         context = {'form': form, 'todo_list': todo_list}
@@ -103,8 +104,8 @@ def sort(request):
         todo_list = json.loads(cookie_str)
         indexes = [reordered[str(k)] for k in range(len(reordered))]
         todo_list_reordered = [
-            item 
-            for pos, item in sorted(zip(indexes, todo_list), key=lambda i: i[0])
+            item
+            for idx, item in sorted(zip(indexes, todo_list), key=lambda i: i[0])
         ]
         response = HttpResponse(status=204)
         response.set_cookie('todo_list', json.dumps(todo_list_reordered))
@@ -118,9 +119,9 @@ def sort(request):
 
 
 def try_view(request):
-    '''
-    Give access to the main functionality to anonymous users.
-    List of items is stored as a cookie that gets updated on change.
+    '''Give access to the main functionality to anonymous users.
+
+    List of sample items is stored as a cookie that gets updated on change.
     '''
     the_page = reverse('try')
 
@@ -142,7 +143,7 @@ def try_view(request):
     cookie_str = request.COOKIES.get('todo_list', '[]')
     todo_list = json.loads(cookie_str)
 
-    form = TodoTestForm(request.POST or None)
+    form = TodoTryForm(request.POST or None)
 
     if form.is_valid():
         text = form.cleaned_data.get('text')

@@ -14,7 +14,7 @@ class TodoForm(forms.ModelForm):
         fields = ['text']
 
 
-class TodoTestForm(forms.Form):
+class TodoTryForm(forms.Form):
     text = forms.CharField(
         label='',
         widget=forms.TextInput(),

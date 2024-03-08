@@ -17,9 +17,3 @@ Basic todo list project on Django.
 :first_quarter_moon: Setting either dark or light theme
 
 :arrows_clockwise: Draggable/sortable items
-
-## Deployed example
-
-[Simply Todo List on Heroku](https://simply-todo-list.herokuapp.com/)
-
-\* The app can be slow because a free dyno is used.
