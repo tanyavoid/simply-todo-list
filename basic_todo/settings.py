@@ -1,5 +1,4 @@
 import environ
-import dj_database_url
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
@@ -61,6 +60,7 @@ WSGI_APPLICATION = 'basic_todo.wsgi.application'
 
 
 # Database
+
 DATABASES = {
     'default': env.db(),  # DATABASE_URL from .env
 }
@@ -134,16 +134,16 @@ SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 if not DEBUG:
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
 
     MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
-    STATICFILES_STORAGE = (
-        'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    )
-
-    STATIC_ROOT = BASE_DIR / 'staticfiles'
+    STORAGES = {
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+        },
+    }
 
     SESSION_COOKIE_SECURE = True
 
-    # CSRF_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True

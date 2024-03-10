@@ -12,7 +12,6 @@ django = "~=4.2"
 djangorestframework = "*"
 django-environ = "*"
 psycopg2-binary = "*"
-dj-database-url = "*"
 gunicorn = "*"
 whitenoise = "*"
 
